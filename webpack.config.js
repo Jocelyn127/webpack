@@ -16,11 +16,20 @@ module.exports = {
         rules: [{
             test: /.js$/,
             use: 'babel-loader'
-        },{
-            test:　/.css$/,
+        },
+        {
+            test: /.css$/,
             use: [  // 从右到左执行
                 'style-loader',
                 'css-loader'
+            ]
+        },
+        {
+            test: /.less$/,
+            use: [  // 从右到左执行
+                'style-loader',
+                'css-loader',
+                'less-loader'
             ]
         }]
     }
