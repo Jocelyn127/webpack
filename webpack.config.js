@@ -31,7 +31,16 @@ module.exports = {
                 'css-loader',
                 'less-loader'
             ]
-        }]
+        },
+        {
+            test: /.(png|jpg|gif|jpeg)$/,
+            use: 'file-loader'
+        },
+        {
+            test: /.(woff|woff2|eot|ttf|otf)$/,
+            use: 'file-loader'
+        }
+    ]
     }
 }
 
