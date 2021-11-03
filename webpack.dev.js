@@ -1,6 +1,8 @@
 'use strict'
 
 const path = require('path');
+const { webpack } = require('webpack');
+// const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugincls');
 
 module.exports = {
     entry: {    //多入口
@@ -11,7 +13,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js'  // 占位符
     },
-    mode: 'production',
+    mode: 'development',
     module: {
         rules: [{
             test: /.js$/,
@@ -48,6 +50,11 @@ module.exports = {
             use: 'file-loader'
         }
     ]
-    }
+    },
+    // plugins:  [new webpack.HotModuleReplacementPlugin()], // how to config??
+    // devServer: {
+    //     contentBase: './dist',
+    //     hot: true
+    // }
 }
 

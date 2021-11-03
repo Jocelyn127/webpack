@@ -8,7 +8,7 @@ import time from './images/time.png';
 class Search extends  React.Component {
     render(){
         return <div className="search-text">
-            Search text <img src = {time}/>
+            Search text1234 <img src = {time}/>
         </div>
     }
 }
