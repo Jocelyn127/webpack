@@ -2,7 +2,9 @@
 
 const path = require('path');
 const { webpack } = require('webpack');
-const MiniCssExtractPlugin = require ('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {    //多入口
@@ -56,11 +58,17 @@ module.exports = {
                 }
             ]
         }
-    ]
+        ]
     },
-    plugins:  [new MiniCssExtractPlugin({
+    plugins: [new MiniCssExtractPlugin({
         filename: '[name]_[contenthash:8].css'
-    })]
-    
+    }),
+    // new OptimizeCSSAssetsPlugin({
+    //     assetNameRegExp: /\.css$/g,
+    //     cssProcessor: require('cssnano')
+    // }),
+    new CleanWebpackPlugin()
+    ]
+
 }
 
